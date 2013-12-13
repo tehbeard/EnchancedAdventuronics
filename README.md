@@ -33,7 +33,7 @@ Commands
 /hasitem      - Checks if player the specified item.
 /gamerule pvp on|off / true/false - Disables ability to hurt players
 /gamerule teamchat on|off true/false - chat messages only sent to team members
-/ctab         - Add/remove item to/from favourites creative tab.
+/ctab         - Add/remove item to/from favourites creative tab. - DONE
 
 How to build
 ------------

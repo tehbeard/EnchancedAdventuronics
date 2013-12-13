@@ -1,4 +1,4 @@
-package com.tehbeard.enchancedadv;
+package com.tehbeard.enchancedadv.proxy;
 
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;

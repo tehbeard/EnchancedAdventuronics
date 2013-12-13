@@ -2,6 +2,8 @@ package com.tehbeard.enchancedadv;
 
 import com.tehbeard.enchancedadv.commands.CTabCommand;
 import com.tehbeard.enchancedadv.commands.VelocityCommand;
+import com.tehbeard.enchancedadv.network.NetworkControl;
+import com.tehbeard.enchancedadv.proxy.CommonProxy;
 
 import net.minecraft.command.CommandHandler;
 import cpw.mods.fml.common.Mod;

@@ -1,6 +1,9 @@
-package com.tehbeard.enchancedadv;
+package com.tehbeard.enchancedadv.network;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+
+import com.tehbeard.enchancedadv.EnhancedAdventuronics;
 
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
@@ -18,7 +21,19 @@ public class NetworkControl implements IPacketHandler {
 	@Override
 	public void onPacketData(INetworkManager manager,
 			Packet250CustomPayload packet, Player player) {
+		try{
+		NBTTagCompound packetTag = CompressedStreamTools.readCompressed(new ByteArrayInputStream(packet.data));
 		
+		if(packetTag.getBoolean("add")){
+			EnhancedAdventuronics.proxy.addFavourite(null, ItemStack.loadItemStackFromNBT(packetTag.getCompoundTag("item")));
+		}
+		else
+		{
+			EnhancedAdventuronics.proxy.removeFavourite(null, ItemStack.loadItemStackFromNBT(packetTag.getCompoundTag("item")));
+		}
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}
 	}
 	
 	public static void sendFavouriteTab(EntityPlayerMP player,boolean add, ItemStack stack){
