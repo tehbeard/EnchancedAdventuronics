@@ -9,6 +9,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerAboutToStartEvent;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid = "enchancedadventuronics",useMetadata=true)
 public class EnhancedAdventuronics {
@@ -20,7 +21,7 @@ public class EnhancedAdventuronics {
 	
 	@EventHandler
 	public void onInit(FMLInitializationEvent event){
-		//TODO - Register blocks and items here.
+		LanguageRegistry.instance().addStringLocalization("command.velocity.usage", "/velocity player x y z or /velocity x y z");
 	}
 	
 	@EventHandler
