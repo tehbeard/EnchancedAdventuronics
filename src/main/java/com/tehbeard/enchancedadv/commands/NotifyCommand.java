@@ -1,7 +1,11 @@
 package com.tehbeard.enchancedadv.commands;
 
+import com.tehbeard.enchancedadv.utils.FakeAchievement;
+
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class NotifyCommand extends CommandBase{
 
@@ -21,8 +25,9 @@ public class NotifyCommand extends CommandBase{
 	}
 
 	@Override
-	public void processCommand(ICommandSender icommandsender, String[] astring) {
-		// TODO Auto-generated method stub
+	public void processCommand(ICommandSender icommandsender, String[] args) {
+		
+		new FakeAchievement(args[0], args[1], new ItemStack(Item.netherStar));
 		
 	}
 

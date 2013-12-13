@@ -1,6 +1,7 @@
 package com.tehbeard.enchancedadv;
 
 import com.tehbeard.enchancedadv.commands.CTabCommand;
+import com.tehbeard.enchancedadv.commands.NotifyCommand;
 import com.tehbeard.enchancedadv.commands.VelocityCommand;
 import com.tehbeard.enchancedadv.network.NetworkControl;
 import com.tehbeard.enchancedadv.proxy.CommonProxy;
@@ -22,7 +23,7 @@ public class EnhancedAdventuronics {
 	
 	
 
-	@SidedProxy(clientSide="com.tehbeard.enchancedadv.ClientProxy",serverSide="com.tehbeard.enchancedadv.CommonProxy")
+	@SidedProxy(clientSide="com.tehbeard.enchancedadv.proxy.ClientProxy",serverSide="com.tehbeard.enchancedadv.proxy.CommonProxy")
 	public static CommonProxy proxy;
 	
 	@EventHandler
@@ -47,6 +48,7 @@ public class EnhancedAdventuronics {
 		CommandHandler manager = (CommandHandler) event.getServer().getCommandManager();
 		manager.registerCommand(new VelocityCommand());
 		manager.registerCommand(new CTabCommand());
+		manager.registerCommand(new NotifyCommand());
 		
 	}
 	
