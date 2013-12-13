@@ -35,6 +35,56 @@ Commands
 /gamerule teamchat on|off true/false - chat messages only sent to team members
 /ctab         - Add/remove item to/from favourites creative tab. - DONE
 
+Mechanics
+---------
+
+Item actions  - Adds the Action NBT tag to items, this allows a map maker to invoke various actions when triggers are met for an item.
+Core data model:
+
+action: [
+{
+	on:{Trigger definition},
+	do:[
+	{action},
+	{action},
+	{filter
+	  ...
+	  do:[{action}]
+	  ...
+	}
+	]
+}
+]
+
+All actions in a tier execute regardless of failure state of others at that level
+
+triggers:
+- on held
+- on unheld?
+- on pickup
+- on drop
+- on use (right click)
+- on equip (armor)
+- on unequip (armor)
+- on attack (left clicked)
+- on attacked with (apply to other)
+- on attacked (called while having when hit)
+
+actions:
+- Apply potion effect
+- Apply attributes
+- velocity
+- health
+- scoreboard manipulation
+- exeucte command (as commandblock / console / special)?
+- clear cooldown/warmup
+- play sound
+
+filters: Special action type used to further refine target
+- Player Selector (stop if not matched)
+- Cooldown (prevent use until x seconds pass)
+- Warmup (Timer use for x seconds)
+
 How to build
 ------------
 1. Install gradle
