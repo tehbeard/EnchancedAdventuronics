@@ -1,0 +1,16 @@
+[
+{
+  "modid": "enchancedadventuronics",
+  "name": "Enchanced Adventuronics",
+  "description": "Adds useful stuff for adventure maps.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "http://github.com/tehbeard/EnchancedAdventuronics",
+  "updateUrl": "",
+  "authors": ["Tehbeard"],
+  "credits": "Created for ModJam 3!",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
