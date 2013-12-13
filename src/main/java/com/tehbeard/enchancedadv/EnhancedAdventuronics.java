@@ -13,13 +13,16 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerAboutToStartEvent;
+import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid = "enchancedadventuronics",useMetadata=true)
+@NetworkMod()
 public class EnhancedAdventuronics {
 	
 	public static final FavouritesTab favouritesTab = new FavouritesTab(); 
 
+	
 	@EventHandler
 	public void onPreInit(FMLPreInitializationEvent event){
 		//TODO - Load configuration here.
@@ -28,6 +31,7 @@ public class EnhancedAdventuronics {
 	@EventHandler
 	public void onInit(FMLInitializationEvent event){
 		LanguageRegistry.instance().addStringLocalization("command.velocity.usage", "/velocity player x y z or /velocity x y z");
+		LanguageRegistry.instance().addStringLocalization("command.ctab.usage", "/ctab [remove]");
 		LanguageRegistry.instance().addStringLocalization("itemGroup.favourite", "Favourites");
 		
 		favouritesTab.addStack(new ItemStack(Block.blockEmerald));

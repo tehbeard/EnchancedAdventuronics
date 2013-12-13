@@ -10,32 +10,30 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class FavouritesTab extends CreativeTabs {
-	
+
 	private Set<ItemStack> stacks = new HashSet<ItemStack>();
-	
-	 public int getTabIconItemIndex()
-	    {
-	        return Item.emerald.itemID;
-	    }
 
 	public FavouritesTab() {
 		super("favourite");
 		setBackgroundImageName("item_search.png");
-		
 	}
-	
+
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public void displayAllReleventItems(List list){
 		list.addAll(stacks);
 	}
-	
+
+	/**
+	 * Add a stack to this tab
+	 * @param stack
+	 */
 	public void addStack(ItemStack stack){
 		ItemStack toUse = stack.copy();
 		toUse.stackSize = 1;
 		_add(toUse);
 	}
-	
+
 	private void _add(ItemStack toUse) {
 		for(ItemStack is : stacks){
 			if(ItemStack.areItemStacksEqual(is, toUse) && 
@@ -46,6 +44,10 @@ public class FavouritesTab extends CreativeTabs {
 		stacks.add(toUse);
 	}
 
+	/**
+	 * Removes a stack from tab
+	 * @param stack
+	 */
 	public void removeStack(ItemStack stack){
 		ItemStack toUse = stack.copy();
 		toUse.stackSize = 1;
@@ -62,9 +64,15 @@ public class FavouritesTab extends CreativeTabs {
 			}
 		}
 	}
-	
+
 	@Override
 	public boolean hasSearchBar() {
 		return true;
+	}
+
+
+	public int getTabIconItemIndex()
+	{
+		return Item.emerald.itemID;
 	}
 }

@@ -4,8 +4,6 @@ import com.tehbeard.enchancedadv.EnhancedAdventuronics;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.command.WrongUsageException;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ChatMessageComponent;
 
@@ -29,7 +27,7 @@ public class CTabCommand extends CommandBase{
 
 	@Override
 	public String getCommandUsage(ICommandSender icommandsender) {
-		return "command.velocity.usage";
+		return "command.ctab.usage";
 	}
 
 	@Override
