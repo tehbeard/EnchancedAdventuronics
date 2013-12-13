@@ -7,6 +7,7 @@ public class CommonProxy {
 
 
 	public void addFavourite(EntityPlayerMP player, ItemStack itemStack) {
+		NetworkControl.sendFavouriteTab(player, true, itemStack);
 	} 
 	
 	public void removeFavourite(EntityPlayerMP player, ItemStack itemStack) {

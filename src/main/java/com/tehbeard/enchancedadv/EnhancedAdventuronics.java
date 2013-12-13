@@ -2,11 +2,8 @@ package com.tehbeard.enchancedadv;
 
 import com.tehbeard.enchancedadv.commands.CTabCommand;
 import com.tehbeard.enchancedadv.commands.VelocityCommand;
-import com.tehbeard.enchancedadv.tabs.FavouritesTab;
 
-import net.minecraft.block.Block;
 import net.minecraft.command.CommandHandler;
-import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
@@ -18,7 +15,7 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid = "enchancedadventuronics",useMetadata=true)
-@NetworkMod(clientSideRequired=true,channels="tehbeard:encadv",packetHandler=NetworkControl.class)
+@NetworkMod(clientSideRequired=true,channels=NetworkControl.CHANNEL_NAME,packetHandler=NetworkControl.class)
 public class EnhancedAdventuronics {
 	
 	
