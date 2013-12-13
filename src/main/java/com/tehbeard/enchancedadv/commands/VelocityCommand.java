@@ -1,11 +1,8 @@
 package com.tehbeard.enchancedadv.commands;
 
-import com.tehbeard.enchancedadv.EnhancedAdventuronics;
-
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ChatMessageComponent;
 
 public class VelocityCommand extends CommandBase{
@@ -14,6 +11,12 @@ public class VelocityCommand extends CommandBase{
 	public String getCommandName() {
 		return "velocity";
 	}
+	
+	public int getRequiredPermissionLevel()
+    {
+        return 2;
+    }
+
 
 	@Override
 	public String getCommandUsage(ICommandSender icommandsender) {
@@ -23,14 +26,14 @@ public class VelocityCommand extends CommandBase{
 	@Override
 	public void processCommand(ICommandSender sender, String[] args) {
 		if(args.length == 4){
-			EntityPlayer player = sender.getEntityWorld().getPlayerEntityByName(args[0]);
+			EntityPlayer player = getPlayer(sender,args[0]);
+			
 			double xMotion = Double.parseDouble(args[1]);
 			double yMotion = Double.parseDouble(args[2]);
 			double zMotion = Double.parseDouble(args[3]);
-			
-			player.motionX += xMotion;
-			player.motionY += yMotion;
-			player.motionZ += zMotion;
+			System.out.println("imparting " + args[0] + " with velocity {" + xMotion + ", " + yMotion + ", " + zMotion + "}");
+			player.addVelocity(xMotion, yMotion, zMotion);
+			player.velocityChanged = true;
 			return;
 		}
 		

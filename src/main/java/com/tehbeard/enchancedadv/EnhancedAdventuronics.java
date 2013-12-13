@@ -3,7 +3,6 @@ package com.tehbeard.enchancedadv;
 import com.tehbeard.enchancedadv.commands.VelocityCommand;
 
 import net.minecraft.command.CommandHandler;
-import net.minecraft.command.ICommandManager;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
