@@ -13,7 +13,7 @@ public class FakeAchievement extends Achievement {
 		super(0, null, 0, 0, icon, null);
 		this.title = title;
 		this.desc = desc;
-		Minecraft.getMinecraft().guiAchievement.queueAchievementInformation(this);
+		
 	}
 	
 	public String getDescription()

@@ -28,7 +28,7 @@ public class EnhancedAdventuronics {
 	
 	@EventHandler
 	public void onPreInit(FMLPreInitializationEvent event){
-		//TODO - Load configuration here.
+		proxy.init();
 	}
 	
 	@EventHandler

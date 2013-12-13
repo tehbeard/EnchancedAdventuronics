@@ -19,4 +19,6 @@ public class CommonProxy {
 	public void sendNotification(EntityPlayerMP player,ItemStack icon,String title,String subText){
 		
 	}
+	
+	public void init(){}
 }
