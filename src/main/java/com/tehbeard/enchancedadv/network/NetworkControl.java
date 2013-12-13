@@ -78,8 +78,24 @@ public class NetworkControl implements IPacketHandler {
 		}
 	}
 
-	public static void sendNotification(EntityPlayerMP player, String text,String subText, ItemStack stack){
+	public static void sendNotification(EntityPlayerMP player, String title,String subText, ItemStack stack){
+		ByteArrayOutputStream bos = new ByteArrayOutputStream();
 
+		NBTTagCompound packet = new NBTTagCompound("notify");
+
+		NBTTagCompound itemTag = new NBTTagCompound();
+		stack.writeToNBT(itemTag);
+
+		packet.setCompoundTag("item",itemTag);
+		packet.setString("title", title);
+		packet.setString("subText", subText);
+
+		try{
+			CompressedStreamTools.writeCompressed(packet, bos);
+			player.playerNetServerHandler.sendPacketToPlayer(new Packet250CustomPayload(CHANNEL_NAME, bos.toByteArray()));
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}
 	}
 
 }
