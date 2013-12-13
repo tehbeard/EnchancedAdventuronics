@@ -35,11 +35,11 @@ public class CTabCommand extends CommandBase{
 		EntityPlayerMP player = getCommandSenderAsPlayer(sender);
 		if(args.length == 0){
 			sender.sendChatToPlayer(new ChatMessageComponent().addText("Adding item."));
-			EnhancedAdventuronics.favouritesTab.addStack(player.inventory.getCurrentItem());
+			EnhancedAdventuronics.proxy.addFavourite(player, player.inventory.getCurrentItem());
 		}
 		if(args.length == 1 && args[0].equalsIgnoreCase("remove")){
 			sender.sendChatToPlayer(new ChatMessageComponent().addText("Removing item."));
-			EnhancedAdventuronics.favouritesTab.removeStack(player.inventory.getCurrentItem());
+			EnhancedAdventuronics.proxy.removeFavourite(player, player.inventory.getCurrentItem());
 		}
 		return;
 

@@ -9,6 +9,7 @@ import net.minecraft.command.CommandHandler;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -17,11 +18,13 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid = "enchancedadventuronics",useMetadata=true)
-@NetworkMod()
+@NetworkMod(clientSideRequired=true,channels="tehbeard:encadv",packetHandler=NetworkControl.class)
 public class EnhancedAdventuronics {
 	
-	public static final FavouritesTab favouritesTab = new FavouritesTab(); 
+	
 
+	@SidedProxy(clientSide="com.tehbeard.enchancedadv.ClientProxy",serverSide="com.tehbeard.enchancedadv.CommonProxy")
+	public static CommonProxy proxy;
 	
 	@EventHandler
 	public void onPreInit(FMLPreInitializationEvent event){
@@ -33,8 +36,6 @@ public class EnhancedAdventuronics {
 		LanguageRegistry.instance().addStringLocalization("command.velocity.usage", "/velocity player x y z or /velocity x y z");
 		LanguageRegistry.instance().addStringLocalization("command.ctab.usage", "/ctab [remove]");
 		LanguageRegistry.instance().addStringLocalization("itemGroup.favourite", "Favourites");
-		
-		favouritesTab.addStack(new ItemStack(Block.blockEmerald));
 	}
 	
 	@EventHandler

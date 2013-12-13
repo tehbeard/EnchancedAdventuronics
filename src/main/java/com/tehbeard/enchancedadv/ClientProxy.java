@@ -5,12 +5,15 @@ import net.minecraft.item.ItemStack;
 
 import com.tehbeard.enchancedadv.tabs.FavouritesTab;
 
-public class CommonProxy {
+public class ClientProxy extends CommonProxy{
 
+	private static final FavouritesTab favouritesTab = new FavouritesTab();
 
 	public void addFavourite(EntityPlayerMP player, ItemStack itemStack) {
+		favouritesTab.addStack(itemStack);
 	} 
 	
 	public void removeFavourite(EntityPlayerMP player, ItemStack itemStack) {
+		favouritesTab.removeStack(itemStack);
 	} 
 }
