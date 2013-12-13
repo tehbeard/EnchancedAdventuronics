@@ -7,6 +7,7 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.util.ChatMessageComponent;
 
 /**
  * Adds the /velocity command
@@ -19,11 +20,11 @@ public class CTabCommand extends CommandBase{
 	public String getCommandName() {
 		return "ctab";
 	}
-	
+
 	public int getRequiredPermissionLevel()
-    {
-        return 2;
-    }
+	{
+		return 2;
+	}
 
 
 	@Override
@@ -34,11 +35,18 @@ public class CTabCommand extends CommandBase{
 	@Override
 	public void processCommand(ICommandSender sender, String[] args) {
 		EntityPlayerMP player = getCommandSenderAsPlayer(sender);
-		EnhancedAdventuronics.favouritesTab.addStack(player.inventory.getCurrentItem());
+		if(args.length == 0){
+			sender.sendChatToPlayer(new ChatMessageComponent().addText("Adding item."));
+			EnhancedAdventuronics.favouritesTab.addStack(player.inventory.getCurrentItem());
+		}
+		if(args.length == 1 && args[0].equalsIgnoreCase("remove")){
+			sender.sendChatToPlayer(new ChatMessageComponent().addText("Removing item."));
+			EnhancedAdventuronics.favouritesTab.removeStack(player.inventory.getCurrentItem());
+		}
 		return;
-		
+
 		//throw new WrongUsageException(getCommandUsage(sender));
-		
+
 	}
 
 	@Override
