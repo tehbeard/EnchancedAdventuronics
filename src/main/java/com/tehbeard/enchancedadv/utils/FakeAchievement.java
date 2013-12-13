@@ -1,6 +1,5 @@
 package com.tehbeard.enchancedadv.utils;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
 

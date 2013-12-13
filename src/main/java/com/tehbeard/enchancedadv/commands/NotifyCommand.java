@@ -1,12 +1,10 @@
 package com.tehbeard.enchancedadv.commands;
 
 import com.tehbeard.enchancedadv.EnhancedAdventuronics;
-import com.tehbeard.enchancedadv.utils.FakeAchievement;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class NotifyCommand extends CommandBase{
