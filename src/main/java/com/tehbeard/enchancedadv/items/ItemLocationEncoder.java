@@ -34,6 +34,15 @@ public class ItemLocationEncoder extends Item{
 		initTag(stack);
 		if(player.isSneaking()){
 			ForgeDirection direction = ForgeDirection.getOrientation(side);
+			getLocTag(stack).setInteger("x",x + direction.offsetX);
+			getLocTag(stack).setInteger("y",y + direction.offsetY);
+			getLocTag(stack).setInteger("z",z + direction.offsetZ);
+		}
+		else
+		{
+			getLocTag(stack).setInteger("x", x);
+			getLocTag(stack).setInteger("y", y);
+			getLocTag(stack).setInteger("z", z);
 		}
 		return true;
 	}
