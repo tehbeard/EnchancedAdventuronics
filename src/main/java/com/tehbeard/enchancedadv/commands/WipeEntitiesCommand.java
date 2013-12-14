@@ -49,21 +49,23 @@ public class WipeEntitiesCommand extends CommandBase{
 				yPos,
 				zPos
 				);
-		bb.expand(radius, radius, radius);
+		bb = bb.expand(radius, radius, radius);
 		@SuppressWarnings("unchecked")
 		List<Entity> found = sender.getEntityWorld().getEntitiesWithinAABB(Entity.class, bb);
 		
 		for(Entity e : found){
+			System.out.println("Found: " +e);
 			if(distanceSqrd(e.posX,e.posY,e.posZ,xPos,yPos,zPos) <=distSqrd){
 				//We want this.
 				if(e instanceof EntityPlayer){continue;} //ignore players
-				
+				System.out.println("within range");
 				//TODO - Entity Type selection
-				e.setDead();
+				e.worldObj.removeEntity(e);
+				
 			}
 		}
 
-		throw new WrongUsageException(getCommandUsage(sender));
+		//throw new WrongUsageException(getCommandUsage(sender));
 
 	}
 	
