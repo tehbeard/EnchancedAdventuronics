@@ -26,7 +26,7 @@ Items
 
 Commands
 --------
-/wipeEntities - Command to clear entities from an area, filterable by type?
+/wipeEntities - Command to clear entities from an area, filterable by type? - DONE / IMRPOVE UPON
 /velocity     - Command to fire players (Player Selector mechanism) in a specified direction? - DONE
 /notify       - Displays the achievement notification to the specified player, scriptable icon, text and description - DONE/NEEDS BETTER STRING HANDLER
 /specator     - Spectator mode : Flight, no block breaking, no inventory access, True Invisibility (same mechanism as bukkit), no entity collision?

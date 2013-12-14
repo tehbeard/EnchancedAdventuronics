@@ -36,6 +36,7 @@ public class EnhancedAdventuronics {
 	public void onInit(FMLInitializationEvent event){
 		LanguageRegistry.instance().addStringLocalization("command.velocity.usage", "/velocity player x y z or /velocity x y z");
 		LanguageRegistry.instance().addStringLocalization("command.ctab.usage", "/ctab [remove]");
+		LanguageRegistry.instance().addStringLocalization("command.wipeentities.usage","/wipeentities x y z radius");
 		LanguageRegistry.instance().addStringLocalization("itemGroup.favourite", "Favourites");
 	}
 	
