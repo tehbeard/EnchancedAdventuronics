@@ -10,7 +10,7 @@ import com.tehbeard.enchancedadv.utils.FakeAchievement;
 
 public class ClientProxy extends CommonProxy{
 
-	private static final FavouritesTab favouritesTab = new FavouritesTab();
+	public static final FavouritesTab favouritesTab = new FavouritesTab();
 
 	public void addFavourite(EntityPlayerMP player, ItemStack itemStack) {
 		favouritesTab.addStack(itemStack);

@@ -5,6 +5,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import com.tehbeard.enchancedadv.items.ItemLocationEncoder;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -12,6 +14,7 @@ import net.minecraft.item.ItemStack;
 public class FavouritesTab extends CreativeTabs {
 
 	private Set<ItemStack> stacks = new HashSet<ItemStack>();
+	private Set<ItemStack> staticStacks = new HashSet<ItemStack>();
 
 	public FavouritesTab() {
 		super("favourite");
@@ -22,6 +25,7 @@ public class FavouritesTab extends CreativeTabs {
 	@Override
 	public void displayAllReleventItems(List list){
 		list.addAll(stacks);
+		list.addAll(staticStacks);
 	}
 
 	/**
@@ -74,5 +78,10 @@ public class FavouritesTab extends CreativeTabs {
 	public int getTabIconItemIndex()
 	{
 		return Item.emerald.itemID;
+	}
+
+	public void addStaticItem(ItemStack item) {
+		staticStacks.add(item);
+		
 	}
 }

@@ -28,12 +28,14 @@ Commands
 --------
 /wipeEntities - Command to clear entities from an area, filterable by type? - DONE
 /velocity     - Command to fire players (Player Selector mechanism) in a specified direction? - DONE
-/notify       - Displays the achievement notification to the specified player, scriptable icon, text and description - DONE/NEEDS BETTER STRING HANDLER
+/notify       - Displays the achievement notification to the specified player, scriptable icon, text and description - DONE
+/ctab         - Add/remove item to/from favourites creative tab. - DONE
+
 /specator     - Spectator mode : Flight, no block breaking, no inventory access, True Invisibility (same mechanism as bukkit), no entity collision?
 /hasitem      - Checks if player the specified item.
 /gamerule pvp on|off / true/false - Disables ability to hurt players
 /gamerule teamchat on|off true/false - chat messages only sent to team members
-/ctab         - Add/remove item to/from favourites creative tab. - DONE
+
 
 Mechanics
 ---------
