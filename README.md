@@ -1,4 +1,4 @@
-Enchanced Adventuronics
+Enhanced Adventuronics
 =======================
 
 ModJam 3 entry
