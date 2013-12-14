@@ -8,6 +8,12 @@ import com.tehbeard.enchancedadv.network.NetworkControl;
 import com.tehbeard.enchancedadv.proxy.CommonProxy;
 
 import net.minecraft.command.CommandHandler;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.projectile.EntityArrow;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
@@ -36,7 +42,7 @@ public class EnhancedAdventuronics {
 	public void onInit(FMLInitializationEvent event){
 		LanguageRegistry.instance().addStringLocalization("command.velocity.usage", "/velocity player x y z or /velocity x y z");
 		LanguageRegistry.instance().addStringLocalization("command.ctab.usage", "/ctab [remove]");
-		LanguageRegistry.instance().addStringLocalization("command.wipeentities.usage","/wipeentities x y z radius");
+		LanguageRegistry.instance().addStringLocalization("command.wipeentities.usage","/wipeentities x y z radius [entity|arrow|item|living|animal|mob]");
 		LanguageRegistry.instance().addStringLocalization("itemGroup.favourite", "Favourites");
 	}
 	

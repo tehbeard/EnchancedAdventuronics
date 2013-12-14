@@ -4,8 +4,14 @@ import java.util.List;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
+import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.util.AxisAlignedBB;
 
 /**
@@ -14,6 +20,21 @@ import net.minecraft.util.AxisAlignedBB;
  *
  */
 public class WipeEntitiesCommand extends CommandBase{
+	
+	public enum ETYPE{
+		ENTITY(Entity.class),
+		ARROW(EntityArrow.class),
+		ITEM(EntityItem.class),
+		LIVING(EntityLiving.class),
+		ANIMAL(EntityAnimal.class),
+		MOB(EntityMob.class);
+		
+		public final Class<? extends Entity> type;
+		
+		private ETYPE(Class<? extends Entity> type){
+			this.type = type;
+		}
+	}
 
 	@Override
 	public String getCommandName() {
@@ -32,14 +53,17 @@ public class WipeEntitiesCommand extends CommandBase{
 	}
 
 	public double getCoord(String v,double defVal){
+		try{
 		if(v.startsWith("~")){
-			try{
+			
 			return Double.parseDouble(v.substring(1)) + defVal;
-			}
-			catch(Exception e){}
+			
 		}
 		return Double.parseDouble(v);
-
+		}
+		catch(Exception e){
+			return defVal;
+		}
 
 	}
 
@@ -49,6 +73,15 @@ public class WipeEntitiesCommand extends CommandBase{
 		double yPos = getCoord(args[1],sender.getPlayerCoordinates().posY);
 		double zPos = getCoord(args[2],sender.getPlayerCoordinates().posZ);
 		double radius  = Double.parseDouble(args[3]);
+		
+		Class type = ETYPE.ENTITY.type;
+		try{
+		if(args.length == 5){
+			type = ETYPE.valueOf(args[4].toUpperCase()).type;
+		}
+		}catch(Exception e){
+			throw new WrongUsageException(getCommandUsage(sender));
+		}
 
 		double distSqrd = radius * radius; // Use squared radius to distance check quicker instead of sqrting
 
@@ -62,7 +95,7 @@ public class WipeEntitiesCommand extends CommandBase{
 				);
 		bb = bb.expand(radius, radius, radius);
 		@SuppressWarnings("unchecked")
-		List<Entity> found = sender.getEntityWorld().getEntitiesWithinAABB(Entity.class, bb);
+		List<Entity> found = sender.getEntityWorld().getEntitiesWithinAABB(type, bb);
 
 		for(Entity e : found){
 			System.out.println("Found: " +e);
