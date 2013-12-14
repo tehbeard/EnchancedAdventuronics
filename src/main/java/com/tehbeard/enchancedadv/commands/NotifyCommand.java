@@ -32,8 +32,8 @@ public class NotifyCommand extends CommandBase{
 		ItemStack stack = null;
 		if(args.length == 5){
 			player = getPlayer(sender,args[0]);
-			title = args[1];
-			subText = args[2];
+			title = args[1].replaceAll("_", " ");
+			subText = args[2].replaceAll("_", " ");
 			stack = new ItemStack(
 					Integer.parseInt(args[3]),
 					1,
